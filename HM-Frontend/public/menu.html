@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hotel Menu</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f8f9fa;
+      }
+
+      .menu-container {
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #ffffff;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+      }
+
+      #heading-div {
+        display: flex;
+        align-items: baseline;
+        justify-content: center;
+        margin-right: '3px';
+      }
+
+      #heading-div h3 {
+        margin: 0;
+        text-align: center;
+        font-size: 2em;
+        margin-left: '5px';
+      }
+
+      .menu-section {
+        margin-bottom: 30px;
+      }
+
+      .menu-section h2 {
+        font-size: 1.5em;
+        margin-bottom: 10px;
+        border-bottom: 2px solid #ddd;
+        padding-bottom: 5px;
+      }
+
+      .menu-item {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 15px;
+      }
+
+      .item-name {
+        font-size: 1.2em;
+      }
+
+      .item-description {
+        flex: 1;
+        margin-left: 10px;
+        color: #555;
+      }
+
+      .item-price {
+        font-weight: bold;
+        color: #333;
+      }
+    </style>
+  </head>
+  <body onload="displayMenu()">
+    <div class="menu-container" id="menu-container">
+      <div id="heading-div">
+        <h3 class="hotel-name" id="hotel-name"></h3>
+        <h3 style="margin-left: 5px">Hotel Menu</h3>
+      </div>
+    </div>
+    <script>
+      async function displayMenu() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const hotelId = urlParams.get('hotelId');
+        console.log('yy =>', hotelId);
+
+        const hostelDataString = localStorage.getItem('hotelData');
+        console.log('Hostel Data =>', hostelDataString);
+
+        let hostelData = {};
+        if (hostelDataString) {
+          try {
+            hostelData = JSON.parse(hostelDataString);
+          } catch (e) {
+            console.error('Error parsing hotel data:', e);
+          }
+        }
+
+        const hotelname = document.getElementById('hotel-name');
+        if (hostelData.name) {
+          hotelname.innerHTML += `<h4>${hostelData.name}</h4>`;
+        }
+
+        try {
+          const response = await fetch(`${process.env.REACT_APP_URL}/api/restaurant/viewallitems/${hotelId}`);
+          // const response = await fetch(`http://localhost:5000/api/restaurant/viewallitems/${hotelId}`);
+          console.log('response =>', response);
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          const itemsData = await response.json();
+          console.log('itemsData ==>', itemsData);
+
+          const container = document.getElementById('menu-container');
+
+          if (itemsData.message) {
+            container.innerHTML += '<p>Menu not found.</p>';
+            return;
+          }
+
+          const sections = {};
+
+          itemsData.restaurantData.forEach((item) => {
+            if (!sections[item.category]) {
+              sections[item.category] = [];
+            }
+            sections[item.category].push(item);
+          });
+
+          for (const category in sections) {
+            const sectionDiv = document.createElement('div');
+            sectionDiv.classList.add('menu-section');
+            sectionDiv.innerHTML = `<h2>${category}</h2>`;
+
+            sections[category].forEach((item) => {
+              const itemDiv = document.createElement('div');
+              itemDiv.classList.add('menu-item');
+              itemDiv.innerHTML = `
+                            <div class="item-name">${item.itemName}</div>
+                            <div class="item-description">${item.description || ''}</div>
+                            <div class="item-price">$${item.amount}</div>
+                        `;
+              sectionDiv.appendChild(itemDiv);
+            });
+
+            container.appendChild(sectionDiv);
+          }
+        } catch (error) {
+          console.error('Error fetching menu data:', error);
+          const container = document.getElementById('menu-container');
+          container.innerHTML += '<p>Failed to load menu.</p>';
+        }
+      }
+    </script>
+  </body>
+</html>

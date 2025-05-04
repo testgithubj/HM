@@ -1,0 +1,50 @@
+.PhoneInputInput {
+  padding: 16px;
+}
+
+label {
+  background-color: #f8fafc;
+}
+
+.css-m2b0uw .MuiDataGrid-virtualScroller {
+  min-height: 200px;
+}
+
+@media screen and (max-width: 600px) {
+  .css-1t5wrdm-MuiDataGrid-filterForm {
+    flex-direction: column !important;
+    z-index: 50;
+  row-gap: 5px;
+    width: 200px !important;
+  }
+  .css-i4r0ky-MuiPaper-root-MuiDataGrid-paper {
+    position: sticky !important;
+    z-index: 50;
+    margin-top: 10px !important;
+    width: 10% !important;
+    border: 'red 2px solid' !important;
+    border: ' red 1px solid' !important;
+    background: transparent !important;
+    box-shadow: none;
+  }
+
+  .css-n3z9fz-MuiPopper-root-MuiDataGrid-panel{
+    width: 200px;
+    background-color: #fff;
+
+    transform: translate3d(20px, 287.5px, 1px) !important;
+  }
+  .css-1qjzotq-MuiDataGrid-panelHeader {
+  width: 200px;
+  }
+  .css-4rdffl-MuiDataGrid-panelFooter{
+    width: 200px;
+  }  
+}
+
+.css-oys24r-MuiFormControl-root>label[data-shrink="false"] {
+background:transparent !important;
+}
+.css-oys24r-MuiFormControl-root>label{
+  background: transparent !important;
+}

@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "commonjs",
+    "baseUrl": "src"
+  },
+  "include": ["src/**/*", "src/views/mainDashboard/Default/TotalReseravtions.js"],
+  "exclude": ["node_modules"]
+}

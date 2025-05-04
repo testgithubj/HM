@@ -1,0 +1,19 @@
+/*  Apply these styles globally or to a specific container */
+::-webkit-scrollbar {
+    width: 8px;  /* Width of the vertical scrollbar */
+    height: 8px; /* Height of the horizontal scrollbar */
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;  /* Color of the tracking area */
+    border-radius: 4px;  /* Optional: round the corners */
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #888;  /* Color of the scrollbar handle */
+    border-radius: 4px; /* Optional: round the corners */
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Color when hovered */
+  }

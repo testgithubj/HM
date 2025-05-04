@@ -1,0 +1,26 @@
+.custom-phone-input {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.PhoneInputInput {
+  padding: 20px;
+}
+
+.phone-custome-field {
+  background: #0464c4;
+  border-radius: 4px;
+  padding: 8px;
+}
+
+input {
+  background: #f8fafc;
+  border: 1px solid #364152;
+  border-radius: 3px;
+}
+
+input:focus {
+  border: 1px solid #673ab7; /* Change border color on focus */
+  box-shadow: 0 0 3px rgba(103, 58, 183, 0.5); /* Optional: Add a subtle glow effect */
+  outline: #0464c4;
+}

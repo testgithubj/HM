@@ -1,0 +1,22 @@
+/* Override default MUI styles for the select field */
+.status-select .MuiSelect-select {
+  background-color: transparent !important; /* Remove default bg */
+}
+
+/* Pending - Orange */
+.status-select.pending .MuiSelect-select {
+  background-color: #ffa726 !important;
+  color: white !important;
+}
+
+/* Complete - Green */
+.status-select.complete .MuiSelect-select {
+  background-color: #66bb6a !important;
+  color: white !important;
+}
+
+/* Refund - Red */
+.status-select.refund .MuiSelect-select {
+  background-color: #ef5350 !important;
+  color: white !important;
+}

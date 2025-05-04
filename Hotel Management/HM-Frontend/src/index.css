@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+body {
+  background-color: #f8f9fa;
+}
+
+.recharts-default-tooltip {
+  border-radius: 8px !important;
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.1) !important;
+}
+
+.custom-phone-input {
+  padding: 20px;
+}
+.css-ql19fo-MuiDataGrid-overlayWrapper {
+  min-height: 100px !important;
+}
+.css-ql19fo-MuiDataGrid-overlayWrapper {
+  min-height: 100px !important;
+}
+.css-1akuw9y-MuiDataGrid-overlayWrapperInner {
+  min-height: 100px !important;
+}
+
+.css-ql19fo-MuiDataGrid-overlayWrapper {
+  min-height: 100px !important;
+  background-color: red;
+}

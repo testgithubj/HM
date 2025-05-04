@@ -1,0 +1,27 @@
+/* Override default MUI styles for the select field */
+.status-select .MuiSelect-select {
+  background-color: transparent !important; /* Remove default bg */
+}
+
+/* Pending - Orange */
+.status-select.Pending .MuiSelect-select {
+  background-color: #ffa726 !important;
+  color: white !important;
+}
+
+/* Complete - Green */
+.status-select.In-Progress .MuiSelect-select {
+  background-color: #66bb6a !important;
+  color: white !important;
+}
+
+/* Refund - Red */
+.status-select.Delivered .MuiSelect-select {
+  background-color: #ef5350 !important;
+  color: white !important;
+}
+
+.css-770yuo-MuiDataGrid-root .MuiDataGrid-columnHeader:focus-within,
+.css-770yuo-MuiDataGrid-root .MuiDataGrid-cell:focus-within {
+  outline: none !important;
+}
